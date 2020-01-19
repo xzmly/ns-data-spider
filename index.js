@@ -7,6 +7,7 @@ const HKHTMLURL = 'https://store.nintendo.com.hk/games/all-released-games';
 const JPHTMLURL = 'https://www.nintendo.co.jp/software/switch/index.html?sftab=all&spage=1';
 
 const JPGAMEURL = 'https://search.nintendo.jp/nintendo_soft/search.json';
+const JPIMAGEPREFIX = 'https://img-eshop.cdn.nintendo.net/i/';
 
 
 const server = app.listen(3000, function () {
@@ -78,7 +79,7 @@ async function requestJPTarget(limit = 300,page = 1,data = []) {
         page += 1;
         const { result } = res.body;
         total = result.total;
-        data.push(...result.items)
+        data.push(...result.items.map(v => ({...v, imageSrc: `${JPIMAGEPREFIX}${v.iurl}.jpg`}) ))
       })
       .catch(err => console.log(err,'请求发生错误'));
   if(Math.ceil(total/limit) >= page){
