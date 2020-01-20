@@ -3,8 +3,9 @@ const superagent = require('superagent');
 const USAGAMEHTMLURL = 'https://www.nintendo.com/games/game-guide/?pv=true'; //页面url
 const USAGAMEURL = 'https://u3b6gr4ua3-dsn.algolia.net/1/indexes/*/queries';
 
+const Referer = "https://www.nintendo.com/games/game-guide/?pv=true";
 
-async function requestUSATarget(limit = 250,page = 1,data = [], url = USAGAMEURL) {
+async function requestUSATarget(limit = 250,page = 0,data = [], url = USAGAMEURL, referer = Referer) {
   const formData = {
     requests: [{
       indexName: "noa_aem_game_en_us",
@@ -20,7 +21,7 @@ async function requestUSATarget(limit = 250,page = 1,data = [], url = USAGAMEURL
         "content-type": "application/x-www-form-urlencoded",
         Host: "u3b6gr4ua3-dsn.algolia.net",
         Origin: "https://www.nintendo.com",
-        Referer: "https://www.nintendo.com/games/game-guide/?pv=true",
+        Referer: referer,
         "Sec-Fetch-Mode": "cors",
         "Sec-Fetch-Site": "cross-site"
       })
