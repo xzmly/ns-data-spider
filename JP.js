@@ -1,3 +1,7 @@
+/*
+  日本
+*/
+
 const superagent = require('superagent');
 
 const JPHTMLURL = 'https://www.nintendo.co.jp/software/switch/index.html?sftab=all&spage=1'; //页面url

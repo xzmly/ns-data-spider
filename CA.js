@@ -1,3 +1,7 @@
+/*
+  加拿大
+*/
+
 const { requestUSATarget } = require('./USA');
 
 const CAGAMEHTMLURL = 'https://www.nintendo.com/en_CA/games/game-guide'; //页面url

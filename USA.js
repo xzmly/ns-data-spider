@@ -1,3 +1,7 @@
+/*
+  美国
+*/
+
 const superagent = require('superagent');
 
 const USAGAMEHTMLURL = 'https://www.nintendo.com/games/game-guide/?pv=true'; //页面url

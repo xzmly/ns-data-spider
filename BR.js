@@ -1,3 +1,7 @@
+/*
+  巴西
+*/
+
 const { requestHKTarget } = require('./HK');
 
 const BRHTMLURL = 'https://store.nintendo.com.br/';
