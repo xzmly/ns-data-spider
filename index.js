@@ -7,6 +7,7 @@ const {requestCOTarget}  = require('./CO');
 const {requestARTarget}  = require('./AR');
 const {requestCLTarget} = require('./CL');
 const { requestPETarget } = require('./PE');
+const {requestKRTarget} = require('./KR');
 
 const express = require('express');
 
@@ -58,5 +59,10 @@ app.get('/cl',async (req,res) => {
 //秘鲁
 app.get('/pe',async (req,res) => {
   const data = await requestPETarget();
+  res.send(data);
+});
+//韩国
+app.get('/kr',async (req,res) => {
+  const data = await requestKRTarget();
   res.send(data);
 });
