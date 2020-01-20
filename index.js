@@ -4,6 +4,7 @@ const {requestUSATarget} = require('./USA');
 const {requestCATarget} = require('./CA');
 const {requestBRTarget}  = require('./BR');
 const {requestCOTarget}  = require('./CO');
+const {requestARTarget}  = require('./AR');
 
 const express = require('express');
 
@@ -40,5 +41,10 @@ app.get('/br',async (req,res) => {
 //哥伦比亚
 app.get('/co',async (req,res) => {
   const data = await requestCOTarget();
+  res.send(data);
+});
+//阿根廷
+app.get('/ar',async (req,res) => {
+  const data = await requestARTarget();
   res.send(data);
 });

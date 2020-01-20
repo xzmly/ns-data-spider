@@ -7,7 +7,7 @@ const cheerio = require('cheerio');
 
 const HKHTMLURL = 'https://store.nintendo.com.hk/games/all-released-games';
 
-async function requestHKTarget(url = HKHTMLURL,replaceStr = "發售日期 "){
+async function requestHKTarget(url = HKHTMLURL,replaceStr = "發售日期 ",orReplaceStr = ''){
   const data = [];
   await superagent.get(url)
       .then((res) => {
@@ -25,7 +25,9 @@ async function requestHKTarget(url = HKHTMLURL,replaceStr = "發售日期 "){
                 title: title.trim(),
                 image,
                 price,
-                saleDate: saleDate.replace(/(^\s*)|(\s*$)/g, "").replace(replaceStr,"")
+                saleDate: saleDate.replace(/(^\s*)|(\s*$)/g, "")
+                    .replace(replaceStr,"")
+                    .replace(orReplaceStr,"")
               })
 
             });
