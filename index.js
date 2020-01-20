@@ -2,6 +2,7 @@ const {requestHKTarget} = require('./HK');
 const {requestJPTarget} = require('./JP');
 const {requestUSATarget} = require('./USA');
 const {requestCATarget} = require('./CA');
+const {requestBRTarget}  = require('./BR');
 
 const express = require('express');
 
@@ -28,5 +29,10 @@ app.get('/usa', async (req, res) => {
 //加拿大
 app.get('/ca',async (req,res) => {
   const data = await requestCATarget();
+  res.send(data);
+});
+//巴西
+app.get('/br',async (req,res) => {
+  const data = await requestBRTarget();
   res.send(data);
 });
